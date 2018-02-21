@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+</head>
+<body>
+    <h1>learning worker!</h1>
+    <button id="test">click me</button>
+    <script>
+        var worker = new Worker('stufftodo.js');
+        test.addEventListener('click', () => {
+            let arr = [1, 23, 565, 1, 45, 2, 76, 4]
+            worker.postMessage(arr);
+        }, false)
+
+        worker.onmessage = function (event) {
+            console.log(event.data)
+        }
+    </script>
+</body>
+</html>
